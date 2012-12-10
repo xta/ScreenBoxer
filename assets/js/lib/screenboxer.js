@@ -39,6 +39,7 @@ $(document).ready(function() {
   var xbox, ybox;
 
   boxer_area.mousedown(function(e){
+    e.preventDefault();
 
     xbox = e.pageX;
     ybox = e.pageY;
@@ -68,16 +69,34 @@ $(document).ready(function() {
   });
 
   boxer_area.mouseup(function() {
-    console.log("Top: " + $('#boxer').css('top'));
-    console.log("Bottom: " + $('#boxer').css('bottom'));
-    console.log("Left: " + $('#boxer').css('left'));
-    console.log("Right: " + $('#boxer').css('right'));
-    console.log("Width: " + $('#boxer').css('width'));
-    console.log("Height: " + $('#boxer').css('height'));
+
+    // console.log("Top: " + $('#boxer').css('top'));
+    // console.log("Bottom: " + $('#boxer').css('bottom'));
+    // console.log("Left: " + $('#boxer').css('left'));
+    // console.log("Right: " + $('#boxer').css('right'));
+    // console.log("Width: " + $('#boxer').css('width'));
+    // console.log("Height: " + $('#boxer').css('height'));
     $("#boxer").attr({ id: '' })
   });
 
+  // get all elements in body   // var all_elements = $('body').get()[0];
+    var all_elements = window.document.body.getElementsByTagName('*');
+    var visible_elements = [];
 
+    for (var i = 0; i < all_elements.length; i++ ) {
+      var jquery_item = $(all_elements.item(i));
+      if ( (jquery_item.width() * jquery_item.height()) != 0 ) {
+        visible_elements.push(jquery_item);
+      }
+    }
+
+    for (i in visible_elements) {
+      console.log("width: " + visible_elements[i].width() + " height: " + visible_elements[i].height());
+      console.log("top: " + visible_elements[i].position().top);
+      console.log("left: " + visible_elements[i].position().left);
+    }
+
+  // if visible element is in the boxed selection area, highlight by adding css class
 
 
 
