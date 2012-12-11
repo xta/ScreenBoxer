@@ -45,7 +45,7 @@ $(document).ready(function() {
     ybox = e.pageY;
 
     $("#boxer").attr({ id: '' });
-    box = $('<div style="border:1px #333 solid;position:fixed;">').hide();
+    box = $('<div class="box_selection"></div>').hide();
     $(document.body).append(box);
     box.attr({id: 'boxer'}).css({ top: e.pageY, left: e.pageX }).fadeIn();
 
