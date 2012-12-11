@@ -76,7 +76,7 @@ $(document).ready(function() {
     // console.log("Right: " + $('#boxer').css('right'));
     // console.log("Width: " + $('#boxer').css('width'));
     // console.log("Height: " + $('#boxer').css('height'));
-    $("#boxer").attr({ id: '' })
+    $("#boxer").remove();
   });
 
   // get all elements in body   // var all_elements = $('body').get()[0];
